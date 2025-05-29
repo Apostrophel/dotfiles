@@ -1,0 +1,5 @@
+# Ignore plugin directories and cache
+.config/nvim/lazy-lock.json
+.config/tmux/plugins
+*.log
+.DS_Store

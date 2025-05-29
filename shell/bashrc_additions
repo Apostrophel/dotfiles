@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Get the directory where dotfiles are located
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+
+# Source all shell configurations
+[ -f "$DOTFILES_DIR/shell/exports" ] && source "$DOTFILES_DIR/shell/exports"
+[ -f "$DOTFILES_DIR/shell/aliases" ] && source "$DOTFILES_DIR/shell/aliases"
+[ -f "$DOTFILES_DIR/shell/functions" ] && source "$DOTFILES_DIR/shell/functions"
+
+# Custom prompt (optional)
+PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
