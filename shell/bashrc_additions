@@ -8,5 +8,5 @@ DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 [ -f "$DOTFILES_DIR/shell/aliases" ] && source "$DOTFILES_DIR/shell/aliases"
 [ -f "$DOTFILES_DIR/shell/functions" ] && source "$DOTFILES_DIR/shell/functions"
 
-# Custom prompt (optional)
-PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+# Custom prompt (optional, requires conda detection for compatability...)
+#PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
