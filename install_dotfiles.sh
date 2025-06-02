@@ -17,6 +17,19 @@ echo "Setting up tmux..."
 rm -rf ~/.config/tmux
 ln -sf "$DOTFILES_DIR/.config/tmux" ~/.config/tmux
 
+# Install TPM if it doesn't exist
+if [ ! -d "$HOME/.config/tmux/plugins/tpm" ]; then
+    echo "Installing TPM..."
+    mkdir -p ~/.config/tmux/plugins
+    git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+fi
+
+# Install tmux plugins automatically
+if [ -d "$HOME/.config/tmux/plugins/tpm" ]; then
+    echo "Installing tmux plugins..."
+    ~/.config/tmux/plugins/tpm/scripts/install_plugins
+fi
+
 # Handle other dotfiles
 echo "Setting up shell configs..."
 ln -sf "$DOTFILES_DIR/.gitconfig" ~/.gitconfig
