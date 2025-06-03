@@ -1,0 +1,122 @@
+# Catppuccin Frappe Color Theme for Bash
+# Colors matching your tmux configuration
+
+# Define Catppuccin Frappe colors
+export CTP_BASE="#303446"
+export CTP_MANTLE="#292c3c"
+export CTP_SURFACE0="#414559"
+export CTP_SURFACE1="#51576d"
+export CTP_SURFACE2="#626880"
+export CTP_OVERLAY0="#737994"
+export CTP_OVERLAY1="#838ba7"
+export CTP_OVERLAY2="#949cbb"
+export CTP_SUBTEXT0="#a5adce"
+export CTP_SUBTEXT1="#b5bfe2"  # Better text color - brighter than your current FG_COLOUR
+export CTP_TEXT="#c6d0f5"
+export CTP_LAVENDER="#babbf1"
+export CTP_BLUE="#8caaee"
+export CTP_SAPPHIRE="#85c1dc"
+export CTP_SKY="#99d1db"
+export CTP_TEAL="#81c8be"
+export CTP_GREEN="#a6d189"
+export CTP_YELLOW="#e5c890"
+export CTP_PEACH="#ef9f76"
+export CTP_MAROON="#ea999c"
+export CTP_RED="#e78284"
+export CTP_MAUVE="#ca9ee6"
+export CTP_PINK="#f4b8e4"
+export CTP_FLAMINGO="#eebebe"
+export CTP_ROSEWATER="#f2d5cf"
+
+# Conda-compatible prompt with Catppuccin colors
+# Only set PS1 if it hasn't been set by conda (preserves conda env display)
+if [[ -z "$CONDA_PROMPT_MODIFIER" ]]; then
+    # Format: [user@host dir] $ 
+    PS1='\[\e[38;2;202;158;230m\][\[\e[38;2;129;200;190m\]\u\[\e[38;2;181;191;226m\]@\[\e[38;2;140;170;238m\]\h \[\e[38;2;166;209;137m\]\w\[\e[38;2;202;158;230m\]]\[\e[38;2;181;191;226m\]$ \[\e[0m\]'
+else
+    # If conda is active, modify the existing PS1 to use our colors but keep conda env
+    # This preserves the (env_name) prefix that conda adds
+    PS1='\[\e[38;2;202;158;230m\][\[\e[38;2;129;200;190m\]\u\[\e[38;2;181;191;226m\]@\[\e[38;2;140;170;238m\]\h \[\e[38;2;166;209;137m\]\w\[\e[38;2;202;158;230m\]]\[\e[38;2;181;191;226m\]$ \[\e[0m\]'
+fi
+
+# Alternative: Let conda handle PS1 completely and only colorize the prompt symbol
+# Uncomment this and comment above if you prefer conda's default format
+# PROMPT_COMMAND='PS1="$(echo "$PS1" | sed "s/\$ /\\[\\e[38;2;181;191;226m\\]\$ \\[\\e[0m\\]/")"'
+
+# Alternative minimal prompt (conda-safe)
+# if [[ -z "$CONDA_PROMPT_MODIFIER" ]]; then
+#     PS1='\[\e[38;2;202;158;230m\]❯ \[\e[0m\]'
+# fi
+
+# LS Colors (using dircolors format)
+export LS_COLORS='rs=0:di=38;2;140;170;238:ln=38;2;202;158;230:mh=00:pi=40;38;2;166;209;137:so=38;2;202;158;230:do=38;2;202;158;230:bd=40;38;2;129;200;190:cd=40;38;2;140;170;238:or=40;38;2;231;130;132:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=38;2;231;130;132:*.tar=38;2;202;158;230:*.tgz=38;2;202;158;230:*.arc=38;2;202;158;230:*.arj=38;2;202;158;230:*.taz=38;2;202;158;230:*.lha=38;2;202;158;230:*.lz4=38;2;202;158;230:*.lzh=38;2;202;158;230:*.lzma=38;2;202;158;230:*.tlz=38;2;202;158;230:*.txz=38;2;202;158;230:*.tzo=38;2;202;158;230:*.t7z=38;2;202;158;230:*.zip=38;2;202;158;230:*.z=38;2;202;158;230:*.dz=38;2;202;158;230:*.gz=38;2;202;158;230:*.lrz=38;2;202;158;230:*.lz=38;2;202;158;230:*.lzo=38;2;202;158;230:*.xz=38;2;202;158;230:*.zst=38;2;202;158;230:*.tzst=38;2;202;158;230:*.bz2=38;2;202;158;230:*.bz=38;2;202;158;230:*.tbz=38;2;202;158;230:*.tbz2=38;2;202;158;230:*.tz=38;2;202;158;230:*.deb=38;2;202;158;230:*.rpm=38;2;202;158;230:*.jar=38;2;202;158;230:*.war=38;2;202;158;230:*.ear=38;2;202;158;230:*.sar=38;2;202;158;230:*.rar=38;2;202;158;230:*.alz=38;2;202;158;230:*.ace=38;2;202;158;230:*.zoo=38;2;202;158;230:*.cpio=38;2;202;158;230:*.7z=38;2;202;158;230:*.rz=38;2;202;158;230:*.cab=38;2;202;158;230:*.wim=38;2;202;158;230:*.swm=38;2;202;158;230:*.dwm=38;2;202;158;230:*.esd=38;2;202;158;230:*.jpg=38;2;244;184;228:*.jpeg=38;2;244;184;228:*.mjpg=38;2;244;184;228:*.mjpeg=38;2;244;184;228:*.gif=38;2;244;184;228:*.bmp=38;2;244;184;228:*.pbm=38;2;244;184;228:*.pgm=38;2;244;184;228:*.ppm=38;2;244;184;228:*.tga=38;2;244;184;228:*.xbm=38;2;244;184;228:*.xpm=38;2;244;184;228:*.tif=38;2;244;184;228:*.tiff=38;2;244;184;228:*.png=38;2;244;184;228:*.svg=38;2;244;184;228:*.svgz=38;2;244;184;228:*.mng=38;2;244;184;228:*.pcx=38;2;244;184;228:*.mov=38;2;239;159;118:*.mpg=38;2;239;159;118:*.mpeg=38;2;239;159;118:*.m2v=38;2;239;159;118:*.mkv=38;2;239;159;118:*.webm=38;2;239;159;118:*.ogm=38;2;239;159;118:*.mp4=38;2;239;159;118:*.m4v=38;2;239;159;118:*.mp4v=38;2;239;159;118:*.vob=38;2;239;159;118:*.qt=38;2;239;159;118:*.nuv=38;2;239;159;118:*.wmv=38;2;239;159;118:*.asf=38;2;239;159;118:*.rm=38;2;239;159;118:*.rmvb=38;2;239;159;118:*.flc=38;2;239;159;118:*.avi=38;2;239;159;118:*.fli=38;2;239;159;118:*.flv=38;2;239;159;118:*.gl=38;2;239;159;118:*.dl=38;2;239;159;118:*.xcf=38;2;239;159;118:*.xwd=38;2;239;159;118:*.yuv=38;2;239;159;118:*.cgm=38;2;239;159;118:*.emf=38;2;239;159;118:*.ogv=38;2;239;159;118:*.ogx=38;2;239;159;118:*.aac=38;2;129;200;190:*.au=38;2;129;200;190:*.flac=38;2;129;200;190:*.m4a=38;2;129;200;190:*.mid=38;2;129;200;190:*.midi=38;2;129;200;190:*.mka=38;2;129;200;190:*.mp3=38;2;129;200;190:*.mpc=38;2;129;200;190:*.ogg=38;2;129;200;190:*.ra=38;2;129;200;190:*.wav=38;2;129;200;190:*.oga=38;2;129;200;190:*.opus=38;2;129;200;190:*.spx=38;2;129;200;190:*.xspf=38;2;129;200;190:'
+
+# Enable colored output for ls
+
+# Enable colored output for grep
+export GREP_OPTIONS='--color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# Man pages colors
+export LESS_TERMCAP_mb=$(printf '\e[38;2;231;130;132m')     # begin blinking
+export LESS_TERMCAP_md=$(printf '\e[38;2;140;170;238m')     # begin bold
+export LESS_TERMCAP_me=$(printf '\e[0m')                    # end mode
+export LESS_TERMCAP_se=$(printf '\e[0m')                    # end standout-mode
+export LESS_TERMCAP_so=$(printf '\e[38;2;202;158;230m')     # begin standout-mode
+export LESS_TERMCAP_ue=$(printf '\e[0m')                    # end underline
+export LESS_TERMCAP_us=$(printf '\e[38;2;129;200;190m')     # begin underline
+
+# Git Theme Configuration using Catppuccin Frappe colors
+
+# Git status colors
+git config --global color.status.added "$(echo -e '\033[38;2;166;209;137m')"      # CTP_GREEN
+git config --global color.status.changed "$(echo -e '\033[38;2;229;200;144m')"    # CTP_YELLOW
+git config --global color.status.untracked "$(echo -e '\033[38;2;231;130;132m')"  # CTP_RED
+git config --global color.status.branch "$(echo -e '\033[38;2;202;158;230m')"     # CTP_MAUVE
+git config --global color.status.nobranch "$(echo -e '\033[38;2;231;130;132m')"   # CTP_RED
+git config --global color.status.unmerged "$(echo -e '\033[38;2;239;159;118m')"   # CTP_PEACH
+
+# Git diff colors
+git config --global color.diff.meta "$(echo -e '\033[38;2;229;200;144m')"         # CTP_YELLOW
+git config --global color.diff.frag "$(echo -e '\033[38;2;140;170;238m')"         # CTP_BLUE
+git config --global color.diff.old "$(echo -e '\033[38;2;231;130;132m')"          # CTP_RED
+git config --global color.diff.new "$(echo -e '\033[38;2;166;209;137m')"          # CTP_GREEN
+git config --global color.diff.func "$(echo -e '\033[38;2;187;187;241m')"         # CTP_LAVENDER
+git config --global color.diff.commit "$(echo -e '\033[38;2;202;158;230m')"       # CTP_MAUVE
+git config --global color.diff.whitespace "$(echo -e '\033[38;2;231;130;132m')"   # CTP_RED
+
+# Git branch colors
+git config --global color.branch.current "$(echo -e '\033[38;2;202;158;230m')"    # CTP_MAUVE bold
+git config --global color.branch.local "$(echo -e '\033[38;2;140;170;238m')"      # CTP_BLUE
+git config --global color.branch.remote "$(echo -e '\033[38;2;166;209;137m')"     # CTP_GREEN
+git config --global color.branch.upstream "$(echo -e '\033[38;2;129;200;190m')"   # CTP_TEAL
+git config --global color.branch.plain "$(echo -e '\033[38;2;198;208;245m')"      # CTP_TEXT
+
+# Git log colors
+git config --global color.log.date "$(echo -e '\033[38;2;133;193;220m')"          # CTP_SKY
+git config --global color.log.author "$(echo -e '\033[38;2;129;200;190m')"        # CTP_TEAL
+
+# Git interactive colors (for rebase, add -p, etc.)
+git config --global color.interactive.prompt "$(echo -e '\033[38;2;202;158;230m')" # CTP_MAUVE
+git config --global color.interactive.header "$(echo -e '\033[38;2;140;170;238m')" # CTP_BLUE
+git config --global color.interactive.help "$(echo -e '\033[38;2;229;200;144m')"   # CTP_YELLOW
+git config --global color.interactive.error "$(echo -e '\033[38;2;231;130;132m')"  # CTP_RED
+
+# Git grep colors
+git config --global color.grep.context "$(echo -e '\033[38;2;165;173;206m')"      # CTP_OVERLAY2
+git config --global color.grep.filename "$(echo -e '\033[38;2;202;158;230m')"     # CTP_MAUVE
+git config --global color.grep.function "$(echo -e '\033[38;2;187;187;241m')"     # CTP_LAVENDER
+git config --global color.grep.linenumber "$(echo -e '\033[38;2;133;193;220m')"   # CTP_SKY
+git config --global color.grep.match "$(echo -e '\033[38;2;166;209;137m')"        # CTP_GREEN
+git config --global color.grep.selected "$(echo -e '\033[38;2;198;208;245m')"     # CTP_TEXT
+git config --global color.grep.separator "$(echo -e '\033[38;2;231;130;132m')"    # CTP_RED
+
+# Enable color output
+git config --global color.ui auto
+git config --global color.pager true
+
+# Optional: Set diff and merge tools with colors
+git config --global diff.colorMoved "default"
+git config --global diff.colorMovedWS "allow-indentation-change"
