@@ -69,49 +69,50 @@ export LESS_TERMCAP_ue=$(printf '\e[0m')                    # end underline
 export LESS_TERMCAP_us=$(printf '\e[38;2;129;200;190m')     # begin underline
 
 # Git Theme Configuration using Catppuccin Frappe colors
+# Using hex format which Git supports reliably
 
 # Git status colors
-git config --global color.status.added "$(echo -e '\033[38;2;166;209;137m')"      # CTP_GREEN
-git config --global color.status.changed "$(echo -e '\033[38;2;229;200;144m')"    # CTP_YELLOW
-git config --global color.status.untracked "$(echo -e '\033[38;2;231;130;132m')"  # CTP_RED
-git config --global color.status.branch "$(echo -e '\033[38;2;202;158;230m')"     # CTP_MAUVE
-git config --global color.status.nobranch "$(echo -e '\033[38;2;231;130;132m')"   # CTP_RED
-git config --global color.status.unmerged "$(echo -e '\033[38;2;239;159;118m')"   # CTP_PEACH
+git config --global color.status.added "#a6d189"      # CTP_GREEN
+git config --global color.status.changed "#e5c890"    # CTP_YELLOW
+git config --global color.status.untracked "#e78284"  # CTP_RED
+git config --global color.status.branch "#ca9ee6"     # CTP_MAUVE
+git config --global color.status.nobranch "#e78284"   # CTP_RED
+git config --global color.status.unmerged "#ef9f76"   # CTP_PEACH
 
 # Git diff colors
-git config --global color.diff.meta "$(echo -e '\033[38;2;229;200;144m')"         # CTP_YELLOW
-git config --global color.diff.frag "$(echo -e '\033[38;2;140;170;238m')"         # CTP_BLUE
-git config --global color.diff.old "$(echo -e '\033[38;2;231;130;132m')"          # CTP_RED
-git config --global color.diff.new "$(echo -e '\033[38;2;166;209;137m')"          # CTP_GREEN
-git config --global color.diff.func "$(echo -e '\033[38;2;187;187;241m')"         # CTP_LAVENDER
-git config --global color.diff.commit "$(echo -e '\033[38;2;202;158;230m')"       # CTP_MAUVE
-git config --global color.diff.whitespace "$(echo -e '\033[38;2;231;130;132m')"   # CTP_RED
+git config --global color.diff.meta "#e5c890"         # CTP_YELLOW
+git config --global color.diff.frag "#8caaee"         # CTP_BLUE
+git config --global color.diff.old "#e78284"          # CTP_RED
+git config --global color.diff.new "#a6d189"          # CTP_GREEN
+git config --global color.diff.func "#babbf1"         # CTP_LAVENDER
+git config --global color.diff.commit "#ca9ee6"       # CTP_MAUVE
+git config --global color.diff.whitespace "#e78284"   # CTP_RED
 
 # Git branch colors
-git config --global color.branch.current "$(echo -e '\033[38;2;202;158;230m')"    # CTP_MAUVE bold
-git config --global color.branch.local "$(echo -e '\033[38;2;140;170;238m')"      # CTP_BLUE
-git config --global color.branch.remote "$(echo -e '\033[38;2;166;209;137m')"     # CTP_GREEN
-git config --global color.branch.upstream "$(echo -e '\033[38;2;129;200;190m')"   # CTP_TEAL
-git config --global color.branch.plain "$(echo -e '\033[38;2;198;208;245m')"      # CTP_TEXT
+git config --global color.branch.current "#ca9ee6 bold"  # CTP_MAUVE bold
+git config --global color.branch.local "#8caaee"         # CTP_BLUE
+git config --global color.branch.remote "#a6d189"        # CTP_GREEN
+git config --global color.branch.upstream "#81c8be"      # CTP_TEAL
+git config --global color.branch.plain "#c6d0f5"         # CTP_TEXT
 
 # Git log colors
-git config --global color.log.date "$(echo -e '\033[38;2;133;193;220m')"          # CTP_SKY
-git config --global color.log.author "$(echo -e '\033[38;2;129;200;190m')"        # CTP_TEAL
+git config --global color.log.date "#99d1db"             # CTP_SKY
+git config --global color.log.author "#81c8be"           # CTP_TEAL
 
 # Git interactive colors (for rebase, add -p, etc.)
-git config --global color.interactive.prompt "$(echo -e '\033[38;2;202;158;230m')" # CTP_MAUVE
-git config --global color.interactive.header "$(echo -e '\033[38;2;140;170;238m')" # CTP_BLUE
-git config --global color.interactive.help "$(echo -e '\033[38;2;229;200;144m')"   # CTP_YELLOW
-git config --global color.interactive.error "$(echo -e '\033[38;2;231;130;132m')"  # CTP_RED
+git config --global color.interactive.prompt "#ca9ee6"   # CTP_MAUVE
+git config --global color.interactive.header "#8caaee"   # CTP_BLUE
+git config --global color.interactive.help "#e5c890"     # CTP_YELLOW
+git config --global color.interactive.error "#e78284"    # CTP_RED
 
 # Git grep colors
-git config --global color.grep.context "$(echo -e '\033[38;2;165;173;206m')"      # CTP_OVERLAY2
-git config --global color.grep.filename "$(echo -e '\033[38;2;202;158;230m')"     # CTP_MAUVE
-git config --global color.grep.function "$(echo -e '\033[38;2;187;187;241m')"     # CTP_LAVENDER
-git config --global color.grep.linenumber "$(echo -e '\033[38;2;133;193;220m')"   # CTP_SKY
-git config --global color.grep.match "$(echo -e '\033[38;2;166;209;137m')"        # CTP_GREEN
-git config --global color.grep.selected "$(echo -e '\033[38;2;198;208;245m')"     # CTP_TEXT
-git config --global color.grep.separator "$(echo -e '\033[38;2;231;130;132m')"    # CTP_RED
+git config --global color.grep.context "#949cbb"         # CTP_OVERLAY2
+git config --global color.grep.filename "#ca9ee6"        # CTP_MAUVE
+git config --global color.grep.function "#babbf1"        # CTP_LAVENDER
+git config --global color.grep.linenumber "#99d1db"      # CTP_SKY
+git config --global color.grep.match "#a6d189"           # CTP_GREEN
+git config --global color.grep.selected "#c6d0f5"        # CTP_TEXT
+git config --global color.grep.separator "#e78284"       # CTP_RED
 
 # Enable color output
 git config --global color.ui auto

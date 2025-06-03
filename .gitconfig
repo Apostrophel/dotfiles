@@ -3,3 +3,46 @@
 	name = Apostrophel
 [credential]
 	helper = store
+[color "status"]
+	added = "#a6d189"
+	changed = "#e5c890"
+	untracked = "#e78284"
+	branch = "#ca9ee6"
+	nobranch = "#e78284"
+	unmerged = "#ef9f76"
+[color "diff"]
+	meta = "#e5c890"
+	frag = "#8caaee"
+	old = "#e78284"
+	new = "#a6d189"
+	func = "#babbf1"
+	commit = "#ca9ee6"
+	whitespace = "#e78284"
+[color "branch"]
+	current = "#ca9ee6 bold"
+	local = "#8caaee"
+	remote = "#a6d189"
+	upstream = "#81c8be"
+	plain = "#c6d0f5"
+[color "log"]
+	date = "#99d1db"
+	author = "#81c8be"
+[color "interactive"]
+	prompt = "#ca9ee6"
+	header = "#8caaee"
+	help = "#e5c890"
+	error = "#e78284"
+[color "grep"]
+	context = "#949cbb"
+	filename = "#ca9ee6"
+	function = "#babbf1"
+	linenumber = "#99d1db"
+	match = "#a6d189"
+	selected = "#c6d0f5"
+	separator = "#e78284"
+[color]
+	ui = auto
+	pager = true
+[diff]
+	colorMoved = default
+	colorMovedWS = allow-indentation-change
