@@ -56,6 +56,13 @@ require("lazy").setup({
     "rcarriga/nvim-notify",
     lazy = false,
   },
+
+  {
+  "szw/vim-maximizer",
+  keys = {
+      { "<leader>z", "<cmd>MaximizerToggle<cr>", desc = "Toggle zoom" },
+    },
+  },
   { import = "plugins" },
 }, lazy_config)
 
