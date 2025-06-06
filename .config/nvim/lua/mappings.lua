@@ -23,3 +23,12 @@ vim.keymap.set('n', '<C-h>', '<C-w>h')  -- Move to left split
 vim.keymap.set('n', '<C-j>', '<C-w>j')  -- Move to bottom split  
 vim.keymap.set('n', '<C-k>', '<C-w>k')  -- Move to top split
 vim.keymap.set('n', '<C-l>', '<C-w>l')  -- Move to right split
+
+-- change inside underscore
+vim.keymap.set({'o', 'x'}, 'i_', function()
+  vim.cmd('normal! T_vt_')
+end, { desc = "Inner underscore segment" })
+
+vim.keymap.set({'o', 'x'}, 'a_', function()
+  vim.cmd('normal! F_vf_')
+end, { desc = "Around underscore segment" })  
