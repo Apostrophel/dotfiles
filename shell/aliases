@@ -6,3 +6,6 @@ alias l='ls -CF --color=auto'
 
 # Quick open
 alias o='xdg-open'
+
+# Copy last command to clipboard
+alias cl="fc -nl -1 | xclip -selection clipboard"

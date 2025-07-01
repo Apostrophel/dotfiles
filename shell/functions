@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Function to copy the output of the previous command
+function co() {
+    $(fc -ln -1) | xclip -selection clipboard
+}
