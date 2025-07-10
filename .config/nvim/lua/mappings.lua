@@ -32,3 +32,22 @@ end, { desc = "Inner underscore segment" })
 vim.keymap.set({'o', 'x'}, 'a_', function()
   vim.cmd('normal! F_vf_')
 end, { desc = "Around underscore segment" })  
+
+-- Advanced find files with media preview
+vim.keymap.set('n', '<leader>fF', function()
+  require('telescope.builtin').find_files({
+    prompt_title = "Find Files (with media preview)",
+    previewer = require('telescope.previewers').new_termopen_previewer {
+      get_command = function(entry)
+        local filepath = entry.path or entry.filename
+        local extension = filepath:match("%.([^%.]+)$")
+        
+        if extension and extension:match("^(png|jpg|jpeg|gif|webp)$") then
+          return { 'chafa', '--size=80x24', filepath }
+        else
+          return { 'cat', filepath }
+        end
+      end
+    }
+  })
+end, { desc = "Find files with media preview" })

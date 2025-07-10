@@ -10,6 +10,7 @@ if not vim.uv.fs_stat(lazypath) then
   vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
 end
 
+vim.opt.conceallevel = 1
 vim.opt.rtp:prepend(lazypath)
 
 
@@ -42,16 +43,28 @@ require("lazy").setup({
     branch = "v2.5",
     import = "nvchad.plugins",
   },
-
-  {
-    "m4xshen/hardtime.nvim",
-    lazy = false,
-    dependencies = { "rcarriga/nvim-notify","MunifTanjim/nui.nvim" },
-    opts = {
-      notification = true,
-    },
-  },
+  -- {
+  --   "m4xshen/hardtime.nvim",
+  --   lazy = false,
+  --   dependencies = { "rcarriga/nvim-notify","MunifTanjim/nui.nvim" },
+  --   opts = {
+  --     notification = true,
+  --   },
+  -- },
   
+  {
+  "sindrets/diffview.nvim",
+  cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles" },
+  config = function()
+    require("diffview").setup({
+      -- Optional: customize settings here
+      diff_binaries = false,    -- Show diffs for binaries
+      enhanced_diff_hl = false, -- See ':h diffview-config-enhanced_diff_hl'
+      git_cmd = { "git" },      -- The git executable followed by default args
+      use_icons = true,         -- Requires nvim-web-devicons
+    })
+  end,
+  },
   {
     "rcarriga/nvim-notify",
     lazy = false,
