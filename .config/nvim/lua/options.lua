@@ -4,3 +4,7 @@ require "nvchad.options"
 
 -- local o = vim.o
 -- o.cursorlineopt ='both' -- to enable cursorline!
+--
+
+
+vim.opt.timeoutlen=500 -- Key sequence timeout, Adjust to get faster/slower recognicion of key sequences. 
