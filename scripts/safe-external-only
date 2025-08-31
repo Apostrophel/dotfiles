@@ -1,0 +1,22 @@
+#!/bin/bash
+# Safe external-only with automatic fallback
+
+# Check if any external monitor is connected
+if xrandr | grep -q "HDMI-1-0 connected\|DP-1 connected"; then
+    # Activate external monitors
+    xrandr --output eDP-1 --off --output HDMI-1-0 --mode 1920x1080 --pos 0x0 --primary --output DP-1 --mode 1920x1080 --pos 1920x0
+    
+    # Monitor for disconnections in background
+    (
+        while true; do
+            sleep 2
+            if ! xrandr | grep -q "HDMI-1-0 connected\|DP-1 connected"; then
+                # External disconnected, fall back to laptop
+                DISPLAY=:0 xrandr --output eDP-1 --auto --primary --output HDMI-1-0 --off --output DP-1 --off
+                break
+            fi
+        done
+    ) &
+else
+    echo "No external monitors connected - staying on laptop screen"
+fi
