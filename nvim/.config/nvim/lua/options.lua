@@ -8,3 +8,4 @@ require "nvchad.options"
 
 
 vim.opt.timeoutlen=500 -- Key sequence timeout, Adjust to get faster/slower recognicion of key sequences. 
+

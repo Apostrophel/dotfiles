@@ -1,6 +1,6 @@
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 vim.opt.termguicolors = true
 
 -- bootstrap lazy and all plugins
@@ -52,7 +52,15 @@ require("lazy").setup({
   --     notification = true,
   --   },
   -- },
-  
+  {
+  "lervag/vimtex",
+  lazy = false,     -- we don't want to lazy load VimTeX
+  -- tag = "v2.15", -- uncomment to pin to a specific release
+  init = function()
+    -- VimTeX configuration goes here, e.g.
+    vim.g.vimtex_view_method = "zathura"
+  end
+  },
   {
   "sindrets/diffview.nvim",
   cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles" },
