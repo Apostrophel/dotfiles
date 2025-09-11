@@ -12,7 +12,19 @@ return {
       require "configs.lspconfig"
     end,
   },
-  
+  {
+    "neoclide/coc.nvim",
+    branch = "release",
+    config = function()
+      require "configs.coc"
+    end,
+  },
+
+  -- You might also want to disable the default LSP config by adding:
+  {
+    "neovim/nvim-lspconfig",
+    enabled = false,
+  },
 
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
