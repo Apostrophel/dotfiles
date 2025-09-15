@@ -1,0 +1,104 @@
+#|
+This is my laptop (and any?) keyboard configuration file for kanata. It is a mirror of  my split keyboard configs.
+|#
+
+;; Time Definitions
+(defvar
+  tap-repress-timeout   200
+  hold-timeout  200
+  tt $tap-repress-timeout
+  ht $hold-timeout
+)
+
+;; Keycode Definitions for symbols
+(defalias
+  tilde (unicode ~)
+  at (unicode @)
+  graves Backquote
+  hat (unicode ^)
+  lessthan (unicode <)
+  greaterthan (unicode >)
+  backquote (unicode `)
+  hashtag (unicode #)
+  percent (unicode %)
+  minus Slash
+  plus Minus
+  equal (unicode =)
+  dollar (unicode $)
+  ampersand (unicode &)
+  question (unicode ?)
+  exclamation (unicode !)
+  star (unicode *)
+)
+
+;; Keycode list (actual keycodes sent by my laptop keyboard)
+(defsrc
+  Escape       F1             F2       F3      F4        F5           F6            F7         F8         F9        F10        F11          F12           PrintScreen  Insert  Delete
+  Backquote    Digit1         Digit2   Digit3  Digit4    Digit5       Digit6        Digit7     Digit8     Digit9    Digit0     Minus        Equal         Backspace
+  Tab          KeyQ           KeyW     KeyE    KeyR      KeyT         KeyY          KeyU       KeyI       KeyO      KeyP       BracketLeft  BracketRight  Enter
+  CapsLock     KeyA           KeyS     KeyD    KeyF      KeyG         KeyH          KeyJ       KeyK       KeyL      Semicolon  Quote        Backslash
+  ShiftLeft    IntlBackslash  KeyZ     KeyX    KeyC      KeyV         KeyB          KeyN       KeyM       Comma     Period     Slash        RightShift    ArrowUp
+  ControlLeft  MetaLeft       AltLeft                    Space                                            AltRight  ContextMenu  ControlRight  ArrowLeft  ArrowDown  ArrowRight
+)
+
+
+
+
+;; Default layer aliases 
+(defalias
+  hmctrl (tap-hold $tt $ht KeyF ControlLeft)
+  hmshft (tap-hold $tt $ht KeyD ShiftLeft)
+  hmalt (tap-hold $tt $ht KeyS AltLeft)
+  hmmeta (tap-hold $tt $ht KeyA MetaLeft) 
+
+  hmrctrl (tap-hold $tt $ht KeyJ ControlRight)
+  hmrshft (tap-hold $tt $ht KeyK ShiftRight)
+  hmralt (tap-hold $tt $ht KeyL AltRight)
+  hmrmeta (tap-hold $tt $ht S-. MetaLeft) 
+)
+
+;; Layer aliases
+(defalias
+  nusy (layer-while-held numsym)
+)
+
+;; ComboDefinitions
+(defcfg concurrent-tap-hold yes)
+(defchordsv2
+  (KeyD KeyF)    S-2        200 all-released  () ;; " 
+  (KeyS KeyF)    S-8        200 all-released  () ;; (
+  (KeyA KeyF)    S-7        200 all-released  () ;; / 
+  (KeyJ KeyK)    S-9        200 all-released  () ;; ) 
+  (KeyJ KeyL)    Backslash  200 all-released  () ;;  Backslash keycode is ' on my keyboard  
+  (KeyJ Semicolon)  Equal   200 all-released  () ;; Equal is \ on my keyboard
+  (KeyX KeyV)    RA-7        200 all-released  () ;; {
+  (KeyM Period)    RA-0        200 all-released  () ;; }
+  (KeyW KeyR)    RA-8        200 all-released  () ;; [
+  (KeyU KeyO)    RA-9        200 all-released  () ;; ] 
+)
+
+
+;; Default layer keymap
+(deflayer qwerty
+  Escape       F1             F2       F3       F4        F5           F6            F7         F8         F9        F10        F11          F12           PrintScreen  Insert  Delete
+  Backquote    Digit1         Digit2   Digit3   Digit4    Digit5       Digit6        Digit7     Digit8     Digit9    Digit0     Minus        Equal         Backspace
+  Tab          KeyQ           KeyW     KeyE     KeyR      KeyT         KeyY          KeyU       KeyI       KeyO      KeyP       BracketLeft  BracketRight  Enter
+  CapsLock     @hmmeta        @hmalt   @hmshft  @hmctrl   KeyG         KeyH          @hmrctrl   @hmrshft   @hmralt   @hmrmeta   Quote        Backslash
+  ShiftLeft    IntlBackslash  KeyZ     KeyX     KeyC      KeyV         KeyB          KeyN       KeyM       Comma     Period     Slash        RightShift    ArrowUp
+  ControlLeft  MetaLeft       @nusy                     Space                                            @nusy  ContextMenu  ControlRight  ArrowLeft  ArrowDown  ArrowRight
+
+)
+
+;; Symbols and numbers layer
+(deflayer numsym
+  Escape       F1             F2          F3         F4            F5           F6            F7         F8         F9        F10          F11           F12           PrintScreen  Insert  Delete
+  Backquote    Digit1         Digit2      Digit3     Digit4        Digit5       Digit6        Digit7     Digit8     Digit9    Digit0       Minus         Equal         Backspace
+  Tab          @at            @tilde      @graves    @hat          @lessthan    @greaterthan  Digit7     Digit8     Digit9    @backquote   BracketLeft   BracketRight  Enter
+  CapsLock     @hashtag       @percent    @minus     @plus         @equal       Digit0        Digit4     Digit5     Digit6    @dollar      Quote         Backslash
+  ShiftLeft    (caps-word 2000)  @ampersand  @question  @exclamation  @star        KeyB          Digit1     Digit2     Digit3    Period       Slash         RightShift    ArrowUp
+  ControlLeft  MetaLeft       AltLeft                       Space                                                   AltRight  ContextMenu  ControlRight  ArrowLeft     ArrowDown  ArrowRight
+
+)
+
+
+
