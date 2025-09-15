@@ -72,6 +72,9 @@ exec --no-startup-id nm-applet
 
 # Set keyboard layout to US on startup
 exec --no-startup-id setxkbmap us
+exec --no-startup-id xinput set-prop 12 "libinput Natural Scrolling" 1
+exec --no-startup-id xinput set-prop 12 "libinput Tapping Enabled" 1 
+# Check if the two above actually work TODO
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
