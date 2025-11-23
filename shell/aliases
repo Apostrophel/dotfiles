@@ -20,3 +20,5 @@ alias all-displays='xrandr --output eDP-1 --auto --output HDMI-1-0 --auto --righ
 
 # Start kanata with laptop-config
 alias kanata-laptop='sudo kanata --cfg ~/.config/kanata/config.kbd'
+
+alias dasbob-laptop='xinput disable 18 && setxkbmap us'
