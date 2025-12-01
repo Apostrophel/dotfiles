@@ -79,6 +79,7 @@ require("lazy").setup({
     lazy = false,
   },
 
+  { 'neoclide/coc.nvim', branch = 'release', },
   {
   "szw/vim-maximizer",
   keys = {
