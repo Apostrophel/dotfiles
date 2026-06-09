@@ -24,6 +24,15 @@ vim.keymap.set('n', '<C-j>', '<C-w>j')  -- Move to bottom split
 vim.keymap.set('n', '<C-k>', '<C-w>k')  -- Move to top split
 vim.keymap.set('n', '<C-l>', '<C-w>l')  -- Move to right split
 
+-- LSP / diagnostics
+map("n", "K",          vim.lsp.buf.hover,                          { desc = "LSP hover doc" })
+map("n", "gi",         vim.lsp.buf.implementation,                 { desc = "LSP go to implementation" })
+map("n", "gr",         vim.lsp.buf.references,                     { desc = "LSP references" })
+map("n", "<leader>ca", vim.lsp.buf.code_action,                    { desc = "LSP code action" })
+map("n", "<leader>of", vim.diagnostic.open_float,                  { desc = "LSP open diagnostic float" })
+map("n", "[d",         vim.diagnostic.goto_prev,                   { desc = "LSP prev diagnostic" })
+map("n", "]d",         vim.diagnostic.goto_next,                   { desc = "LSP next diagnostic" })
+
 -- change inside underscore
 vim.keymap.set({'o', 'x'}, 'i_', function()
   vim.cmd('normal! T_vt_')

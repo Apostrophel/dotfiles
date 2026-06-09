@@ -1,0 +1,8 @@
+! Regolith Xresources overrides
+! After editing, apply with: regolith-look refresh
+
+! Remap app launcher from $mod+Space to $mod+d
+wm.binding.launcher.app: d
+
+! Move display settings off $mod+d to avoid conflict
+wm.binding.display: Shift+d
