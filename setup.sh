@@ -1,9 +1,8 @@
 #!/bin/bash
 #
-# Usage: ./setup.sh [i3|regolith]
+# Usage: ./setup.sh [regolith]
 #
 #   (no arg)   only the universal packages (nvim, tmux, git)
-#   i3         universal + plain-i3 packages (i3, i3status, i3lock)
 #   regolith   universal + regolith package (regolith3)
 #
 # nvim/tmux/git are window-manager independent and stowed everywhere.
@@ -24,10 +23,9 @@ UNIVERSAL=(git nvim tmux)
 
 # Window-manager specific packages
 case "$WM" in
-  i3)       WM_PACKAGES=(i3 i3status i3lock) ;;
   regolith) WM_PACKAGES=(regolith3) ;;
   "")       WM_PACKAGES=() ;;
-  *)        echo "Unknown WM '$WM'. Use: i3, regolith, or no argument."; exit 1 ;;
+  *)        echo "Unknown WM '$WM'. Use: regolith, or no argument."; exit 1 ;;
 esac
 
 PACKAGES=("${UNIVERSAL[@]}" "${WM_PACKAGES[@]}")
