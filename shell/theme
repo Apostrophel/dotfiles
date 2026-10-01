@@ -31,12 +31,12 @@ export CTP_ROSEWATER="#f2d5cf"
 # Conda-compatible prompt with Catppuccin colors
 # Only set PS1 if it hasn't been set by conda (preserves conda env display)
 if [[ -z "$CONDA_PROMPT_MODIFIER" ]]; then
-    # Format: [user@host dir] $ 
-    PS1='\[\e[38;2;202;158;230m\][\[\e[38;2;129;200;190m\]\u\[\e[38;2;181;191;226m\]@\[\e[38;2;140;170;238m\]\h \[\e[38;2;166;209;137m\]\w\[\e[38;2;202;158;230m\]]\[\e[38;2;181;191;226m\]$ \[\e[0m\]'
+    # Format: [HH:MM:SS user@host dir] $ 
+    PS1='\[\e[38;2;202;158;230m\][\[\e[38;2;148;156;187m\]\t \[\e[38;2;129;200;190m\]\u\[\e[38;2;181;191;226m\]@\[\e[38;2;140;170;238m\]\h \[\e[38;2;166;209;137m\]\w\[\e[38;2;202;158;230m\]]\[\e[38;2;181;191;226m\]$ \[\e[0m\]'
 else
     # If conda is active, modify the existing PS1 to use our colors but keep conda env
     # This preserves the (env_name) prefix that conda adds
-    PS1='\[\e[38;2;202;158;230m\][\[\e[38;2;129;200;190m\]\u\[\e[38;2;181;191;226m\]@\[\e[38;2;140;170;238m\]\h \[\e[38;2;166;209;137m\]\w\[\e[38;2;202;158;230m\]]\[\e[38;2;181;191;226m\]$ \[\e[0m\]'
+    PS1='\[\e[38;2;202;158;230m\][\[\e[38;2;148;156;187m\]\t \[\e[38;2;129;200;190m\]\u\[\e[38;2;181;191;226m\]@\[\e[38;2;140;170;238m\]\h \[\e[38;2;166;209;137m\]\w\[\e[38;2;202;158;230m\]]\[\e[38;2;181;191;226m\]$ \[\e[0m\]'
 fi
 
 # Alternative: Let conda handle PS1 completely and only colorize the prompt symbol
