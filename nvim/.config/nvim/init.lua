@@ -18,20 +18,20 @@ vim.opt.rtp:prepend(lazypath)
 local lazy_config = require "configs.lazy"
 
 -- WSL clipboard configuration
-if vim.fn.has('wsl') == 1 then
-    vim.g.clipboard = {
-        name = 'WslClipboard',
-        copy = {
-            ['+'] = 'xclip -selection clipboard',
-            ['*'] = 'xclip -selection primary',
-        },
-        paste = {
-            ['+'] = 'xclip -selection clipboard -o',
-            ['*'] = 'xclip -selection primary -o',
-        },
-        cache_enabled = 0,
-    }
-end
+-- if vim.fn.has('wsl') == 1 then
+--     vim.g.clipboard = {
+--         name = 'WslClipboard',
+--         copy = {
+--             ['+'] = 'xclip -selection clipboard',
+--             ['*'] = 'xclip -selection primary',
+--         },
+--         paste = {
+--             ['+'] = 'xclip -selection clipboard -o',
+--             ['*'] = 'xclip -selection primary -o',
+--         },
+--         cache_enabled = 0,
+--     }
+-- end
 
 -- Set clipboard to use system clipboard
 vim.opt.clipboard = "unnamedplus"
@@ -44,6 +44,12 @@ require("lazy").setup({
     branch = "v2.5",
     import = "nvchad.plugins",
   },
+
+  {
+    "JuliaEditorSupport/julia-vim",
+    lazy = false,  -- must load eagerly: its ftdetect registers global autocmds that call autoload functions
+  },
+
   -- {
   --   "m4xshen/hardtime.nvim",
   --   lazy = false,
