@@ -15,7 +15,10 @@ sjurbarndon@proton.me
 )
 
 (defsrc 
-a s d f g h j k l Semicolon
+q w e r t y u i o p
+a s d f g h j k l Semicolon Quote Backslash
+z x c v b n m 
+spc
 )
 
 ;; Combo keys:
@@ -51,6 +54,21 @@ a s d f g h j k l Semicolon
 
   ;; custom keys:
   cln  (fork S-. , (lsft rsft)) ;; Colon on tap, Semicolon on shift+tap 
+  oe (fork Semicolon Backslash (lsft rsft)) ;; Oe on tap, Star on shift+tap
+
+  layerspace (tap-hold $tap-time $hold-time spc (layer-while-held sym))
 )
 
-(deflayer base @agui @salt @dshift @fctrl g h @jctrl @kshift @lalt @cln)
+(deflayer base 
+  q w e r t y u i o p 
+  @agui @salt @dshift @fctrl g h @jctrl @kshift @lalt @cln Quote @oe 
+  z x c v b n m
+  @layerspace
+)
+
+(deflayer sym 
+  RA-2 RA-BracketRight Backquote S-BracketRight t y u i o RA-Equal
+  S-3 S-5 Slash Minus S-0 h j k l RA-4 Quote @oe 
+  z S-6 S-Minus S-1 S-Backslash n m
+  spc
+)
