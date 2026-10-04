@@ -1,0 +1,48 @@
+#|
+This is my laptop-port of some of the functionality of my QMK split keyboard keymaps. It includes key combos, hold-tap home row mods, and some remapping of vital keys.
+sjurbarndon@proton.me
+|#
+(defvar
+  combo-time 50
+  tap-time   150   ;; QUICK_TAP_TERM
+  hold-time  200   ;; TAPPING_TERM
+)
+
+(defcfg
+  linux-dev /dev/input/by-path/platform-i8042-serio-0-event-kbd
+  process-unmapped-keys yes
+  concurrent-tap-hold yes
+)
+
+(defsrc 
+a s d f g h j k l Semicolon
+)
+
+;; Combo keys:
+(defchordsv2
+  (d f) S-2 $combo-time all-released ()
+  (j k) Backslash $combo-time all-released ()
+
+  (j l) S-9 $combo-time all-released ()
+  (j Semicolon) Equal $combo-time all-released ()
+  (s f) S-8 $combo-time all-released ()
+  (a f) S-7 $combo-time all-released ()
+
+  (w r) RA-8 $combo-time all-released ()
+  (q r) IntlBackslash $combo-time all-released ()
+  (u o) RA-9 $combo-time all-released ()
+  (u p) S-IntlBackslash $combo-time all-released ()
+
+  (x v) RA-7 $combo-time all-released ()
+  (m Period) RA-0 $combo-time all-released ()
+)
+
+(defalias
+  agui (tap-hold $tap-time $hold-time a lmet)
+  salt (tap-hold $tap-time $hold-time s lalt)
+
+  ;; custom keys:
+  cln  (fork S-. , (lsft rsft)) ;; Colon on tap, Semicolon on shift+tap 
+)
+
+(deflayer base @agui @salt d f g h j k l @cln)
