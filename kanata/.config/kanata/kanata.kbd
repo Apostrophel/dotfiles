@@ -38,11 +38,19 @@ a s d f g h j k l Semicolon
 )
 
 (defalias
+  ;; Home row mods:
   agui (tap-hold $tap-time $hold-time a lmet)
   salt (tap-hold $tap-time $hold-time s lalt)
+  dshift (tap-hold $tap-time $hold-time d lshift)
+  fctrl (tap-hold $tap-time $hold-time f lctrl)
+
+  lalt (tap-hold $tap-time $hold-time l ralt)
+  kshift (tap-hold $tap-time $hold-time k rshift)
+  jctrl (tap-hold $tap-time $hold-time j rctrl)
+
 
   ;; custom keys:
   cln  (fork S-. , (lsft rsft)) ;; Colon on tap, Semicolon on shift+tap 
 )
 
-(deflayer base @agui @salt d f g h j k l @cln)
+(deflayer base @agui @salt @dshift @fctrl g h @jctrl @kshift @lalt @cln)
