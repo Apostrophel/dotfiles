@@ -45,4 +45,13 @@ if ! grep -q "$SOURCE_LINE" ~/.bashrc; then
     echo "Added shell sourcing to .bashrc"
 fi
 
+# Install TPM and the tmux plugins (resurrect, continuum...) if missing.
+# The plugins folder is gitignored, so this is needed on every new machine.
+TPM_DIR=~/.config/tmux/plugins/tpm
+if [ ! -d "$TPM_DIR" ]; then
+    git clone https://github.com/tmux-plugins/tpm "$TPM_DIR"
+    echo "Installed TPM"
+fi
+"$TPM_DIR/bin/install_plugins"
+
 echo "Dotfiles linked!"
