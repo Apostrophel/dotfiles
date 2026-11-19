@@ -4,3 +4,22 @@ export VISUAL=nvim
 
 # Path additions
 export PATH="$HOME/.local/bin:$PATH"
+
+# Display / clipboard environment inside tmux.
+# The tmux server is started by systemd at boot (tmux-continuum), before the
+# graphical login, so panes inherit missing/stale DISPLAY, WAYLAND_DISPLAY and
+# XAUTHORITY. That breaks the clipboard (nvim, claude, ...) and GUI windows
+# (matplotlib "cannot connect to display"). Pull the current values from the
+# systemd user manager, which the desktop session keeps up to date, and push
+# them into tmux's global env so new panes and copy-pipe commands get them too.
+if [ -n "$TMUX" ] && command -v systemctl >/dev/null 2>&1; then
+    while IFS='=' read -r _key _val; do
+        case "$_key" in
+            DISPLAY|WAYLAND_DISPLAY|XAUTHORITY)
+                export "$_key=$_val"
+                tmux set-environment -g "$_key" "$_val" 2>/dev/null
+                ;;
+        esac
+    done < <(systemctl --user show-environment 2>/dev/null)
+    unset _key _val
+fi

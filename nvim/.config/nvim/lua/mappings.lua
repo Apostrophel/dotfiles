@@ -42,6 +42,10 @@ vim.keymap.set({'o', 'x'}, 'a_', function()
   vim.cmd('normal! F_vf_')
 end, { desc = "Around underscore segment" })  
 
+-- spelling mappings
+map("n", "<leader>z", "1z=", { desc = "Spell: accept first suggestion" })
+map("n", "<leader>Z", "]s1z=", { desc = "Spell: fix next misspelled word" })
+
 -- Advanced find files with media preview
 vim.keymap.set('n', '<leader>fF', function()
   require('telescope.builtin').find_files({

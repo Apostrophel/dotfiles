@@ -67,6 +67,7 @@ return {
       ensure_installed = {
         "vim", "lua", "vimdoc",
         "html", "css", "rust", "toml",
+        "markdown", "markdown_inline", "latex",
       },
     },
   },
@@ -85,7 +86,13 @@ return {
     init = function()
       vim.g.vimtex_view_method = "zathura"
       vim.g.vimtex_compiler_method = "latexmk"
-      vim.opt.conceallevel = 0
+      -- disable conceal only for TeX buffers (markdown rendering needs it)
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = { "tex", "plaintex", "bib" },
+        callback = function()
+          vim.opt_local.conceallevel = 0
+        end,
+      })
     end,
   },
 }

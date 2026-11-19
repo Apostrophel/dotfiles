@@ -8,7 +8,7 @@ alias l='ls -CF --color=auto'
 alias o='xdg-open'
 
 # Copy last command to clipboard
-alias cl="fc -nl -1 | xclip -selection clipboard"
+alias cl="fc -nl -1 | ~/.config/tmux/clipboard-copy.sh"
 
 # Safe view for live files
 alias liveview='nvim -R +set\ autoread'

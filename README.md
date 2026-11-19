@@ -18,7 +18,7 @@ machine. To stow an individual package manually: `stow -t ~ <package>`.
 ```
 sudo apt install chafa # This is an image renderer for the terminal, required by the telescope-media-files.nvim plugin for nvim
 sudo apt install poppler-utils # required to preview pdf fils in the telescope-media-files.nvim plugin. 
-sudo apt install xclip # required by tmux copy-mode to yank to the system clipboard
+sudo apt install wl-clipboard xclip # system clipboard for tmux/nvim (wl-copy on Wayland, xclip on X11), see tmux/.config/tmux/clipboard-copy.sh
 
 ```
 
