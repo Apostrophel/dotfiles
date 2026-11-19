@@ -61,6 +61,7 @@ return {
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
 
+  { "folke/which-key.nvim", lazy=false}, --this is to get the leader key working instantly.
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
